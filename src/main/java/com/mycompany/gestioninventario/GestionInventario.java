@@ -33,7 +33,7 @@ public class GestionInventario {
             scanner.nextLine(); // Limpiar el buffer
             
             switch (opcion) {
-                case 1:
+            case 1:
                     System.out.println("Nombre del producto: ");
                     String nombre = scanner.nextLine();
                     System.out.println("Codigo del producto: ");
@@ -43,9 +43,13 @@ public class GestionInventario {
                     System.out.println("Cantidad en stock: ");
                     int cantidadStock = scanner.nextInt();
                     scanner.nextLine(); //Limpiar el buffer
+                    if(precio > 0 && cantidadStock > 0){
                     Producto producto = new Producto(nombre, codigoProducto, precio, cantidadStock);
                     inventario.agregarProducto(producto);
                     System.out.println("Producto agregado");
+                     }else{
+                        System.out.println("Las cantidades y el dinero no puede ser negativo, no se puede almacenar ese producto ");
+                        }
                     break;
                 case 2:
                     System.out.println("Codigo del producto: ");
@@ -53,7 +57,8 @@ public class GestionInventario {
                     System.out.println("Cantidad a vender: ");
                     int cantidad = scanner.nextInt();
                     scanner.nextLine(); //Limpiar el buffer
-                    int cantidadrevisar = inventario.consultarStock(codigoProducto2);
+                    if(cantidad > 0){
+                        int cantidadrevisar = inventario.consultarStock(codigoProducto2);
                     if(cantidad > cantidadrevisar){
                         System.out.println("No hay suficiente stock");
                     }else{
@@ -61,6 +66,10 @@ public class GestionInventario {
                     Producto producto2 = inventario.obtenerProductoCodigo(codigoProducto2);
                     ventas.registrarVenta(producto2, cantidad, producto2.getPrecio());
                     }
+                    }else{
+                        System.out.println("Ingrese una cantidad positiva");
+                    }
+                    
                     break;
                 case 3:
                     System.out.println("Codigo del producto: ");
