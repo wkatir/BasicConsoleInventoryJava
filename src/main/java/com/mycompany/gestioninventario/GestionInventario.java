@@ -28,7 +28,8 @@ public class GestionInventario {
             System.out.println("3. Consultar stock");
             System.out.println("4. Informe de ventas");
             System.out.println("5. Mostrar productos");
-            System.out.println("6. Salir");
+            System.out.println("6. Agregar stocks a un producto ya existente");
+            System.out.println("7. Salir");
             System.out.println("Seleccione una opcion: ");
             opcion = scanner.nextInt();
             scanner.nextLine(); // Limpiar el buffer
@@ -85,12 +86,24 @@ public class GestionInventario {
                     inventario.mostrarProductos();
                     break;
                 case 6:
+                    System.out.println("Ingrese el codigo del producto: ");
+                    String codigoProducto4 = scanner.nextLine();
+                    System.out.println("Cantidad que incrementara: ");
+                    int cantidadIncrementar = scanner.nextInt();
+                    scanner.nextLine(); //Limpiar el buffer
+                    if(cantidadIncrementar > 0){
+                    inventario.incrementarStock(codigoProducto4, cantidadIncrementar);
+                    }else{
+                        System.out.println("No inserte cantidades negativas");
+                    }
+                    break;
+                case 7:
                     System.out.println("Gracias por utilizar");
                 default:
                     System.out.println("Eliga una opcion valida");
             }
             
-        }while(opcion !=6);
+        }while(opcion !=7);
     }catch(Exception e){
             System.out.println("Ingrese opciones validas");
 }

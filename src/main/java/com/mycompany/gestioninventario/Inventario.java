@@ -88,7 +88,17 @@ public class Inventario {
         }
     }
     
+    //Metodo para incrementar el stock de un producto ya existente
     
+    public void incrementarStock(String codigoProducto, int cantidad){
+        Producto producto = obtenerProductoCodigo(codigoProducto);
+        if(producto != null){
+            producto.agregarProducto(cantidad);
+            System.out.println("Se ha restablecido cantidad de producto al inventario");
+        }else{
+            System.out.println("No se encontro ese producto");
+        }
+    }
     
     
     
