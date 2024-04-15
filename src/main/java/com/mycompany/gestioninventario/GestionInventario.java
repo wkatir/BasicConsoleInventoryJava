@@ -27,7 +27,8 @@ public class GestionInventario {
             System.out.println("2. Vender un producto");
             System.out.println("3. Consultar stock");
             System.out.println("4. Informe de ventas");
-            System.out.println("5. Salir");
+            System.out.println("5. Mostrar productos");
+            System.out.println("6. Salir");
             System.out.println("Seleccione una opcion: ");
             opcion = scanner.nextInt();
             scanner.nextLine(); // Limpiar el buffer
@@ -81,13 +82,15 @@ public class GestionInventario {
                     ventas.generarInforme();
                     break;
                 case 5:
-                    System.out.println("Gracias por utilizar el software");   
+                    inventario.mostrarProductos();
                     break;
+                case 6:
+                    System.out.println("Gracias por utilizar");
                 default:
                     System.out.println("Eliga una opcion valida");
             }
             
-        }while(opcion !=5);
+        }while(opcion !=6);
     }catch(Exception e){
             System.out.println("Ingrese opciones validas");
 }

@@ -71,6 +71,23 @@ public class Inventario {
         }
     }
     
+    //Metodo para mostar los producots reservados
+    
+    public void mostrarProductos() {
+        if (productos.isEmpty()) {
+            System.out.println("No hay productos en el inventario ");
+        } else {
+            System.out.println("Productos en el inventario:");
+            for (Producto producto : productos) {
+                System.out.println("Nombre: " + producto.getNombre());
+                System.out.println("Código: " + producto.getCodigoProducto());
+                System.out.println("Precio: " + producto.getPrecio());
+                System.out.println("Cantidad en stock: " + producto.getCantidadStock());
+                System.out.println();
+            }
+        }
+    }
+    
     
     
     
